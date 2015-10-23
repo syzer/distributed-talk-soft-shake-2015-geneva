@@ -3,13 +3,13 @@ var net = require('net');
 
 net.createServer(function (c) {
     var d = dnode({
-        transform : function (s, cb) {
-            cb(s.replace('bad :(', 'awesome :)').toUpperCase())
+        transform: function (s, cb) {
+            cb(s.replace('bad :(', 'awesome :)')
+                .toUpperCase())
         }
     });
     c.pipe(d).pipe(c);
 }).listen(8080);
-
 
 var d = dnode();
 d.on('remote', function (remote) {

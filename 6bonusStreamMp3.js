@@ -19,4 +19,5 @@ http.createServer(function (req, res) {
         .createReadStream(file)
         .pipe(zlib.createGzip())
         .pipe(res);
+
 }).listen(8080);

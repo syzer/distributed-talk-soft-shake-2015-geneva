@@ -14,13 +14,13 @@ net.createServer(function (c) {
 }).listen(8080);
 
 
-var d = dnode();
-d.on('remote', function (remote) {
+var es = dnode();
+es.on('remote', function (remote) {
     remote.transform('Logs are bad :(', function (s) {
         console.log('=> ' + s);
-        d.end();
+        es.end();
     });
 });
 
-var c = net.connect(8080);
-c.pipe(d).pipe(c);
+var cs = net.connect(8080);
+cs.pipe(es).pipe(cs);

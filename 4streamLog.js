@@ -1,5 +1,6 @@
 var dnode = require('dnode');
 var net = require('net');
+var fs = require('fs');
 
 net.createServer(function (c) {
     var d = dnode({
@@ -7,16 +8,14 @@ net.createServer(function (c) {
             cb(s.replace('bad :(', 'awesome :)').toUpperCase())
         }
     });
-    var log = fs.createWriteStream('message.txt');
-    c.pipe(d).pipe(c);
+    var log = fs.createWriteStream('log.txt');
+    c.pipe(d).pipe(c).pipe(log);
 }).listen(8080);
 
 
-3streamLogs.js
-
 var d = dnode();
 d.on('remote', function (remote) {
-    remote.transform('bad :(', function (s) {
+    remote.transform('Logs are bad :(', function (s) {
         console.log('=> ' + s);
         d.end();
     });

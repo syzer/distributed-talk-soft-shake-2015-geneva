@@ -13,7 +13,7 @@ net.createServer(function (c) {
 
 var d = dnode();
 d.on('remote', function (remote) {
-    remote.transform('bad :(', function (s) {
+    remote.transform('RPC is bad :(', function (s) {
         console.log('=> ' + s);
         d.end();
     });

@@ -1,11 +1,10 @@
 var http = require('http');
 var fs = require('fs');
 
-var server = http
-    .createServer(function (req, res) {
-        fs.readFile(__dirname + '/bad-ass-witcher.jpg', function (err, data) {
-            res.end(data);
-        });
-    });
-server.listen(80);
-// show reference transparency
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'image/png'});
+    fs.createReadStream('bad-ass-witcher.jpg')
+        .pipe(res);
+}).listen(8080);
+
+console.log('localhost:8080');

@@ -5,7 +5,8 @@ var fs = require('fs');
 net.createServer(function (c) {
     var d = dnode({
         transform : function (s, cb) {
-            cb(s.replace('bad :(', 'awesome :)').toUpperCase())
+            cb(s.replace('bad :(', 'awesome :)')
+                .toUpperCase())
         }
     });
     var log = fs.createWriteStream('log.txt');

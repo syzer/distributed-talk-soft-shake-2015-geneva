@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dnode": "^1.2.2"
+    "dnode": "^1.2.2",
+    "scuttlebutt": "^5.6.13"
   }
 }

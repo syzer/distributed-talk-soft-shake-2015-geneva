@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concat-stream": "^1.5.1",
     "dnode": "^1.2.2",
     "scuttlebutt": "^5.6.13"
   }

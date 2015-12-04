@@ -1,12 +1,12 @@
 // send file stream... not all the file at once
-var http = require('http');
-var fs = require('fs');
-var path = require('path');
-var zlib = require('zlib');
-var file = path.join(__dirname, 'awesome.mp3');
-var size = fs.statSync(file).size;
-http.createServer(function (req, res) {
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const zlib = require('zlib');
+const file = path.join(__dirname, 'awesome.mp3');
+const size = fs.statSync(file).size;
 
+http.createServer((req, res) => {
     // allow client to skip to requested part of stream
     res.writeHead(200, {
         'Content-Type': 'audio/mpeg',

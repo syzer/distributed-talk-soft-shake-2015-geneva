@@ -1,10 +1,11 @@
-var dnode = require('dnode');
-var net = require('net');
-var fs = require('fs');
+// 26 LOC log stream AKA Apache Kafka :)
+const dnode = require('dnode');
+const net = require('net');
+const fs = require('fs');
 
-net.createServer(function (c) {
+net.createServer((c) => {
     var d = dnode({
-        transform : function (s, cb) {
+        transform: (s, cb) => {
             cb(s.replace('bad :(', 'awesome :)')
                 .toUpperCase())
         }
@@ -13,10 +14,9 @@ net.createServer(function (c) {
     c.pipe(d).pipe(c).pipe(log);
 }).listen(8080);
 
-
 var es = dnode();
-es.on('remote', function (remote) {
-    remote.transform('Logs are bad :(', function (s) {
+es.on('remote', (remote) => {
+    remote.transform('Logs are bad :(', (s) => {
         console.log('=> ' + s);
         es.end();
     });

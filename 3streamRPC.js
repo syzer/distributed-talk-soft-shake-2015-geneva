@@ -1,9 +1,9 @@
-var dnode = require('dnode');
-var net = require('net');
+const dnode = require('dnode');
+const net = require('net');
 
-net.createServer(function (c) {
+net.createServer((c) => {
     var d = dnode({
-        transform: function (s, cb) {
+        transform: (s, cb) => {
             cb(s.replace('bad :(', 'awesome :)')
                 .toUpperCase())
         }
@@ -12,8 +12,8 @@ net.createServer(function (c) {
 }).listen(8080);
 
 var d = dnode();
-d.on('remote', function (remote) {
-    remote.transform('RPC is bad :(', function (s) {
+d.on('remote', (remote) => {
+    remote.transform('RPC is bad :(', (s) => {
         console.log('=> ' + s);
         d.end();
     });

@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 
-http.createServer(function (req, res) {
+http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'image/png'});
     fs.createReadStream('bad-ass-witcher.jpg')
         .pipe(res);

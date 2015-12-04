@@ -1,4 +1,4 @@
-var Model = require('scuttlebutt/model');
+const Model = require('scuttlebutt/model');
 var am = new Model;
 var as = am.createStream();
 
@@ -19,11 +19,11 @@ bs.pipe(cs).pipe(bs);
 bs.pipe(ds).pipe(bs);
 ds.pipe(es).pipe(ds);
 
-em.on('update', function (key, value, source) {
-    console.log(key + ' => ' + value + ' from ' + source);
-});
+em.on('update', (key, value, source) =>
+    console.log(`${key} => ${value} from ${source}`)
+);
 
-am.set('x', 555);
+am.set('x', 666);
 
 /**
  a <->  b  <-> c
@@ -36,5 +36,5 @@ a NOT connected to e
  but eventually get the message
 
  node model.js
- x,555 => 1445593032513 from 90D5E5C9B96DC48BA2AE4EA2
+ x,666 => 1445593032513 from 90D5E5C9B96DC48BA2AE4EA2
  */

@@ -2,8 +2,8 @@ var http = require('http');
 var fs = require('fs');
 var file = __dirname + '/bad-ass-witcher.jpg';
 
-http.createServer(function (req, res) {
-    fs.readFile(file, function (err, data) {
+http.createServer((req, res) => {
+    fs.readFile(file, (err, data) => {
         res.end(data);
     });
 }).listen(8080);

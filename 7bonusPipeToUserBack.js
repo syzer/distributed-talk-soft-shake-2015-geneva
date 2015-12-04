@@ -1,12 +1,12 @@
 // get whole stream as parameter!
-var concat = require('concat-stream');
-var http = require('http');
+const concat = require('concat-stream');
+const http = require('http');
 
-http.createServer(function (req, res) {
+http.createServer((req, res) => {
     if ('POST' !== req.method) {
         return res.end();
     }
-    req.pipe(concat(function (body) {
+    req.pipe(concat((body) => {
         var obj = JSON.parse(body);
         res.end(Object.keys(obj).join('\n'));
     }));

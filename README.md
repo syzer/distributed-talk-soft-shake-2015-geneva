@@ -1,4 +1,6 @@
 # WAT
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/distributed-talk-soft-shake-2015-geneva.svg)](https://greenkeeper.io/)
 Examples to slides for soft-shakke-conference @geneva in 2015
 
 # HOW
